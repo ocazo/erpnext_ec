@@ -16,7 +16,7 @@ import requests
 #from erpnext_ec.utilities.encryption import *
 from erpnext_ec.utilities.signature_tool import *
 from erpnext_ec.utilities.xml_builder import *
-#from erpnext_ec.utilities.xades_tool_v2 import *
+from erpnext_ec.utilities.xades_tool_v4 import *
 
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -906,10 +906,10 @@ def send_doc_internal(doc, typeDocSri, doctype_erpnext, siteName, regional_setti
 		if(regional_settings_ec.signature_tool == "XadesSignerCmd"):
 			signed_xml = SriXmlData.sign_xml_cmd(SriXmlData, xml_string, sri_signatures[0])
 
-		#if(regional_settings_ec.signature_tool == "Python Native (With Fails)"):
+		elif(regional_settings_ec.signature_tool == "Python Native (With Fails)"):
 			#signed_xml = SriXmlData.sign_xml(SriXmlData, xml_string, doc_data, sri_signatures[0])
 			#signed_xml = SriXmlData.sign_xml_xades(SriXmlData, xml_string, sri_signatures[0])			
-		#	signed_xml =XadesToolV2.sign_xml(SriXmlData, xml_string, doc_data, sri_signatures[0])
+			signed_xml =XadesToolV4.sign_xml(SriXmlData, xml_string, doc_data, sri_signatures[0])
 	
 		print(xml_string)
 		
