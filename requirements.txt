@@ -1,0 +1,8 @@
+# ERPNext Ecuador - dependencias compatibles con Python 3.14 (uv)
+requests~=2.32
+urllib3~=2.7
+xmltodict~=0.14
+python-dateutil~=2.9
+lxml>=5.0,<7
+cryptography>=44
+python-barcode>=0.15

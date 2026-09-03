@@ -1,0 +1,19 @@
+[
+ {
+  "name": "Item-codigo_auxiliar_sri",
+  "parent": "Customize Form",
+  "parentfield": "fields",
+  "parenttype": "Customize Form",
+  "idx": 22,
+  "docstatus": 0,
+  "label": "Código Auxiliar SRI",
+  "fieldtype": "Data",
+  "fieldname": "codigo_auxiliar_sri",
+  "inser_after": "agenteretencion",
+  "is_custom_field": 1,
+  "doctype": "Custom Field",
+  "dt": "Item",
+  "insert_after": "item_code",
+  "description": "Código auxiliar SRI (Anexos 23 y 25 Ficha Técnica 2026)"
+ }
+]
