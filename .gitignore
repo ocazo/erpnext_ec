@@ -1,7 +1,38 @@
-.DS_Store
+# Python
 *.pyc
-*.egg-info
+*.pyo
+__pycache__/
+*.egg-info/
+*.egg
+dist/
+build/
+eggs/
+*.whl
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
 *.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Frappe / bench
+node_modules/
+sites/private/backups/
+*.log
+
+# uv
+uv.lock
+
+# Tags
 tags
-node_modules
-__pycache__

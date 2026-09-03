@@ -3,22 +3,17 @@ name = "erpnext_ec"
 authors = [
     { name = "BeebTech", email = "ronald.chonillo@gmail.com" }
 ]
-description = "ErpNext Ecuador - Localización ecuatoriana para ERPNext (SRI)"
+description = "ERPNext Ecuador - Localización ecuatoriana SRI"
 requires-python = ">=3.12,<3.15"
 readme = "README.md"
 dynamic = ["version"]
 dependencies = [
-    # Web services SRI
     "requests~=2.32",
     "urllib3~=2.7",
-    # Parseo de respuestas SOAP/XML del SRI
     "xmltodict~=0.14",
     "python-dateutil~=2.9",
-    # Generación y validación XSD de comprobantes electrónicos
     "lxml>=5.0,<7",
-    # Firma electrónica XAdES-BES (PKCS#12)
     "cryptography>=44",
-    # Códigos de barras para el RIDE
     "python-barcode>=0.15",
 ]
 
@@ -35,13 +30,9 @@ packages = { find = { where = ["."], include = ["erpnext_ec*"] } }
     "**/*.csv", "**/*.txt", "**/*.woff2", "**/*.png", "**/*.svg", "**/*.map",
     "**/*.min.js", "XadesSignerCmd",
 ]
-"erpnext_ec.erpnext_ec" = ["**/*.json", "**/*.js"]
-"erpnext_ec.erpnext_sri" = ["**/*.json", "**/*.js"]
 
 [tool.setuptools.package-dir]
 "" = "."
-
-[tool.bench.dev-dependencies]
 
 [tool.bench.frappe-dependencies]
 frappe = ">=16.0.0,<17.0.0"
