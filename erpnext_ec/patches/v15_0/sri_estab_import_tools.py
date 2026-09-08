@@ -4,31 +4,29 @@ import frappe
 import json
 
 def get_last_sequencial_found(company_id, sri_type_doc_lnk, establishment, ptoemi):
-	if sri_type_doc_lnk == "FAC":
-			#'sri_environment_lnk': sri_environment_lnk,
-			# TODO: Agregar "ambiente" en las tablas
-			docs_found = frappe.get_list("Sales Invoice",  fields=[f"MAX(secuencial) as max_secuencial"], filters={        	
-				'company': company_id,
-                'estab': establishment,
-                'ptoemi': ptoemi,
-    		})
-			#print(docs_found)
-			#print(docs_found[0].max_secuencial)
-			return docs_found[0].max_secuencial			
-		#elif sri_type_doc_lnk ==  "GRS":
-		#elif sri_type_doc_lnk ==  "CRE":
-	if sri_type_doc_lnk == "GRS":
-		docs_found = frappe.get_list("Delivery Note",  fields=[f"MAX(secuencial) as max_secuencial"], filters={        	
-				'company': company_id,
-    		})
-		return docs_found[0].max_secuencial
-	
-	if sri_type_doc_lnk == "CRE":
-		docs_found = frappe.get_list("Purchase Withholding Sri Ec",  fields=[f"MAX(secuencial) as max_secuencial"], filters={        	
-				'company': company_id,
-    		})
-		return docs_found[0].max_secuencial
-     
+	doctype_map = {
+		"FAC": "Sales Invoice",
+		"GRS": "Delivery Note",
+		"CRE": "Purchase Withholding Sri Ec",
+	}
+	doctype = doctype_map.get(sri_type_doc_lnk)
+	if not doctype:
+		return 0
+	filters = {"company": company_id}
+	if establishment:
+		filters["estab"] = establishment
+	if ptoemi:
+		filters["ptoemi"] = ptoemi
+	docs_found = frappe.get_all(
+		doctype,
+		filters=filters,
+		fields=["secuencial"],
+		order_by="secuencial desc",
+		limit_page_length=1,
+	)
+	return docs_found[0].get("secuencial") or 0 if docs_found else 0
+
+
 def insert_update(DocTypeName, JsonPath):
     print("insert_update_data")
     # Lee el archivo JSON

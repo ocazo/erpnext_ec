@@ -52,7 +52,7 @@ def insert_new_data(DocTypeName, JsonPath):
                     #Continua con las siguientes subcuentas
                     continue
                 except Exception as e:
-                    print("Error:" + e)
+                    print("Error: " + str(e))
         
                 continue                
 
@@ -85,7 +85,10 @@ def update_data(DocTypeName, JsonPath):
             #CREACION DE SUBCUENTA DE RETENCIONES
             #resulRetenAccount = frappe.get_all("Account", filters={"name": ["like", "%" + record["account_name"] + "%"]})
             
-            document_object = frappe.get_last_doc('Account', filters={"name": ["like", "%" + record["account_name"] + "%"]})
+            accounts_found = frappe.get_all('Account', filters={"account_name": record["account_name"], "company": record["company"]}, fields=["name"], limit_page_length=1, order_by="creation desc")
+            if not accounts_found:
+                continue
+            document_object = frappe.get_doc('Account', accounts_found[0].name)
 
             #document_object = frappe.get_last_doc('Account', filters={"name": ["like", "%" + record["account_name"] + "%"],
             #                                                          "company":record["company"]})
@@ -103,7 +106,7 @@ def update_data(DocTypeName, JsonPath):
             #raise ReferenceError("Error de prueba")
         
         except Exception as e:
-            print("Error:" + e)
+            print("Error: " + str(e))
 
         continue
 
