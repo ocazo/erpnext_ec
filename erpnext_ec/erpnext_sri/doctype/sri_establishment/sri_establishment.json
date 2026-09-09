@@ -48,29 +48,14 @@
       "reqd": 1,
       "search_index": 1
     },
-   {
-     "fieldname": "description",
-     "fieldtype": "Data",
-     "in_list_view": 1,
-     "in_preview": 1,
-     "label": "Description",
-     "reqd": 1
-   },
-   {
-     "label": "Puntos de Emisión",
-     "fieldtype": "Section Break",
-     "fieldname": "estab_detail_section",		
-     "in_preview": 0,
-     "bold": 1,
-     "collapsible": 0
-   },
-   {
-    "label": "Puntos de Emisión",
-    "fieldtype": "Table",
-    "fieldname": "sri_ptoemi_detail",		
-    "in_preview": 0,
-    "options": "Sri Ptoemi"
-  }
+    {
+      "fieldname": "description",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "in_preview": 1,
+      "label": "Description",
+      "reqd": 1
+    }
   ],
   "index_web_pages_for_search": 1,
   "links": [],
@@ -92,9 +77,26 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User"
   }
- ],
-  "search_fields": "record_name, description, sri_ptoemi_detail",
+  ],
+  "search_fields": "record_name, description",
   "sort_field": "record_name",
   "sort_order": "ASC",
   "states": [],

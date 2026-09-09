@@ -203,6 +203,12 @@ function allowSendSri(docApi)
 
 function SetFormSriButtons(frm, DocTypeErpNext)
 {
+	// La factura no tiene datos SRI (estab/ptoemi), sigue el flujo normal de ERPNext sin botones SRI
+	if (!frm.doc.estab || !frm.doc.ptoemi)
+	{
+		return;
+	}
+
 	//console.log('allowSendSri');
 	//console.log(allowSendSri(frm.doc));
 

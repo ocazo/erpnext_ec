@@ -139,10 +139,14 @@ def build_doc_fac(doc_name):
 		ruc = doc.tax_id #doc.company_tax_id
 		
 		puntoEmision_rec = get_full_ptoemi(doc.ptoemi)
+		if not puntoEmision_rec:
+			frappe.throw(_("No se ha definido el punto de emisión (ptoEmi). Configure los datos SRI para emitir el comprobante electrónico."))
 		doc.ptoemi = puntoEmision_rec.record_name
 		puntoEmision = doc.ptoemi
 		
 		establecimiento_rec = get_full_establishment(doc.estab)
+		if not establecimiento_rec:
+			frappe.throw(_("No se ha definido el establecimiento (estab). Configure los datos SRI para emitir el comprobante electrónico."))
 		doc.estab = establecimiento_rec.record_name
 		establecimiento = doc.estab
 

@@ -1175,16 +1175,22 @@ def setSecuencial(doc, typeDocSri):
     
     return 0
     
-def get_full_establishment(record_name):    
-    docs = frappe.get_all('Sri Establishment', fields='*', filters={'name': record_name})    
-    
-    if docs:
-        doc = docs[0]
-        return doc
+def get_full_establishment(record_name):
+    if not record_name:
+        return None
+    docs = frappe.get_all('Sri Establishment', fields='*', filters={'name': record_name})
 
-def get_full_ptoemi(record_name):    
-    docs = frappe.get_all('Sri Ptoemi', fields='*', filters={'name': record_name})    
-    
     if docs:
         doc = docs[0]
         return doc
+    return None
+
+def get_full_ptoemi(record_name):
+    if not record_name:
+        return None
+    docs = frappe.get_all('Sri Ptoemi', fields='*', filters={'name': record_name})
+
+    if docs:
+        doc = docs[0]
+        return doc
+    return None
