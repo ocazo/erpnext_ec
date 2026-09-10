@@ -5,3 +5,4 @@ erpnext_ec.patches.v15_0.sales_invoice_custom
 erpnext_ec.patches.v15_0.print_formats
 erpnext_ec.patches.v15_0.email_template
 erpnext_ec.patches.v16_0.sri_2026_fields
+erpnext_ec.patches.v16_0.create_erpnext_ec_sidebar
