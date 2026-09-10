@@ -23,7 +23,6 @@ app_include_js = [
 	"/assets/erpnext_ec/js/libs/jsonTree/jsonTree.js",
 	"/assets/erpnext_ec/js/libs/monthpicker/jquery.ui.monthpicker.min.js",
 	"/assets/erpnext_ec/js/utils/desk.custom.js",
-	"/assets/erpnext_ec/js/pages/sri_estado.js",
 ]
 
 app_include_css = [

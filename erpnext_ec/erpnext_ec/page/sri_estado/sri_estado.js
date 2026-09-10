@@ -1,3 +1,5 @@
+frappe.pages["sri-estado"] = frappe.pages["sri-estado"] || {};
+
 frappe.pages["sri-estado"].on_page_load = function (wrapper) {
 	frappe.ui.make_app_page({
 		parent: wrapper,
